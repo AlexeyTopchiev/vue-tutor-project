@@ -13,8 +13,8 @@ export default {
         }
     },
     created() {
-        eventEmitter.$on('counterUpdated', () => {
-            this.counter++
+        eventEmitter.$on('counterUpdated', (num) => {
+            this.counter += num
         })
     }
 }

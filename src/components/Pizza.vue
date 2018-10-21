@@ -34,7 +34,7 @@ export default {
             this.$emit('nameChanged', this.pizzaName)
         },
         updateCounter() {
-            eventEmitter.$emit('counterUpdated')
+            eventEmitter.$emit('counterUpdated', 5)
         }
     },
     computed: {
