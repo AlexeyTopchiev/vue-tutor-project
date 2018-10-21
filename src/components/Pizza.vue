@@ -4,11 +4,13 @@
         <h2>Price: {{ pizzaPrice }} </h2>
         <button @click="changeName">Change Name</button>
         <button @click="changeFunc()">Change Name from Parent</button>
+        <button @click="updateCounter">Update Counter</button>
 
     </div>
 </template>
 
 <script>
+import {eventEmitter} from '../main.js'
 export default {
     name: 'pizza',
     props: ['pizzaName', 'pizzaPrice', 'changeFunc'],
@@ -29,7 +31,10 @@ export default {
     methods: {
         changeName () {
             this.pizzaName = 'Маргарита'
-            this.$emit('changedName', this.pizzaName)
+            this.$emit('nameChanged', this.pizzaName)
+        },
+        updateCounter() {
+            eventEmitter.$emit('counterUpdated')
         }
     },
     computed: {

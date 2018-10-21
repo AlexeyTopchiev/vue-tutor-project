@@ -5,21 +5,25 @@
     <h1>Parent: {{ pizzaName }}</h1>
     <Pizza  :pizzaName="pizzaName"
             :pizzaPrice="pizzaPrice"
-            @changedName="pizzaName = $event"
+            @nameChanged="pizzaName = $event"
             :changeFunc="changeNameToPizza"
+            @counterUpdated="counter = $event"
           />
+    <Counter />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Pizza from './components/Pizza.vue'
+import Counter from './components/Counter.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Pizza
+    Pizza,
+    Counter
   },
   data() {
     return {
